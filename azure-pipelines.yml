@@ -15,14 +15,11 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'docker build -t shaikmustafa/azurerepo:v1 .'
+    script: 'docker build -t shaikmustafa/azurerepo .'
 
 - task: Docker@2
   inputs:
     containerRegistry: 'mydockerhub-connection'
-    repository: 'shaikmustafa/azurerepo:v1'
+    repository: 'shaikmustafa/azurerepo'
     command: 'push'
 
-- task: CmdLine@2
-  inputs:
-    script: 'docker run -d --name python-cont -p 1234:8000 myimage'
