@@ -15,12 +15,12 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'docker build -t myimage .'
+    script: 'docker build -t shaikmustafa/azurerepo:v1 .'
 
 - task: Docker@2
   inputs:
     containerRegistry: 'mydockerhub-connection'
-    repository: 'azure-repo'
+    repository: 'shaikmustafa/azurerepo:v1'
     command: 'push'
 
 - task: CmdLine@2
