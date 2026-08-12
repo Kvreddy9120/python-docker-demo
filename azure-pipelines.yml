@@ -1,13 +1,8 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
 pool:
-  name: mynew-pool
+  name: flm-pool
 
 steps:
 - script: echo Hello, world!
@@ -15,12 +10,6 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'docker build -t shaikmustafa/azurerepo:v2 .'
+    script: 'docker build -t myimage .'
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'mydockerhub-connection'
-    repository: 'shaikmustafa/azurerepo'
-    command: 'push'
-    tags: 'v2'
 
