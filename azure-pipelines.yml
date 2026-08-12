@@ -19,4 +19,4 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'docker run -t --name python-cont -p 1234:8000 myimage'
+    script: 'docker run -d --name python-cont -p 1234:8000 myimage'
