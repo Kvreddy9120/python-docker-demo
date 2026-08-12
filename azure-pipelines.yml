@@ -10,9 +10,11 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'docker build -t myimage .'
+    script: 'docker build -t kvreddy9120/azrepo:v1 .'
 
-
-- task: CmdLine@2
+- task: Docker@2
   inputs:
-    script: 'docker run -d --name cont-1 -p 1111:8000 myimage'
+    containerRegistry: 'docker-connection'
+    repository: 'kvreddy9120/azrepo'
+    command: 'push'
+    tags: 'v1'
